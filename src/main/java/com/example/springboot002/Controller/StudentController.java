@@ -38,6 +38,12 @@ public class StudentController {
         return studentService.getAllStudents();
     }
 
+    @RequestMapping(value = "/insert",method = RequestMethod.PUT,consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Collection<Student> insertStudentById(@RequestBody Student student){
+        studentService.insertStudent(student);
+        return studentService.getAllStudents();
+    }
+
 
     @RequestMapping(value = "/string",method=RequestMethod.GET)
     public String wow(){
