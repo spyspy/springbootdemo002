@@ -3,6 +3,7 @@ package com.example.springboot002.Controller;
 import com.example.springboot002.Entity.Student;
 import com.example.springboot002.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -31,7 +32,7 @@ public class StudentController {
     }
 
 
-    @RequestMapping(value = "/update",method = RequestMethod.PUT)
+    @RequestMapping(value = "/update",method = RequestMethod.PUT,consumes = MediaType.APPLICATION_JSON_VALUE)
     public Collection<Student> updateStudentById(@RequestBody Student student){
         studentService.updateStudent(student);
         return studentService.getAllStudents();
