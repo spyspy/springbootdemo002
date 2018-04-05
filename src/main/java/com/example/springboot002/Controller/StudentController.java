@@ -31,7 +31,7 @@ public class StudentController {
     }
 
 
-    @RequestMapping(value = "/update/{id}",method = RequestMethod.DELETE)
+    @RequestMapping(value = "/update",method = RequestMethod.PUT)
     public Collection<Student> updateStudentById(@RequestBody Student student){
         studentService.updateStudent(student);
         return studentService.getAllStudents();
