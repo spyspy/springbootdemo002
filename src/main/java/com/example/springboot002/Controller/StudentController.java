@@ -3,17 +3,28 @@ package com.example.springboot002.Controller;
 import com.example.springboot002.Entity.Student;
 import com.example.springboot002.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Locale;
 
 @RestController
 @RequestMapping("/students")
 public class StudentController {
 
+    /**
+     * Exaample: http://localhost:8090/students/string
+     *
+     *
+     * */
+
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    private MessageSource messageSource;
 
     @RequestMapping(method = RequestMethod.GET)
     public Collection<Student> getAllStudents(){
@@ -50,6 +61,12 @@ public class StudentController {
         return studentService.getDaoString();
     }
 
+    @RequestMapping(value = "/message",method=RequestMethod.GET)
+    public String message(){
+        //Note: No ok yet.....
+        String returnSting = messageSource.getMessage("wow.test",new Object[]{1,2,3}, null);
 
+        return returnSting;
+    }
 
 }

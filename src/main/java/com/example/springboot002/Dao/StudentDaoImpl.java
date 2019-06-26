@@ -29,7 +29,7 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     public StudentDaoImpl() {
-        this.mystring = "This is my String";
+        this.mystring = "This is my String Object";
     }
 
     @Override
